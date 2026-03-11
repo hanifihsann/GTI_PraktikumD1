@@ -1,15 +1,15 @@
-# Project: Project1
+# Project: GL_TRIANGLES
 # Makefile created by Dev-C++ 5.7.1
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = Pertemuan1.o mainKubusBertingkat(no3).o Primitive(no2).o
-LINKOBJ  = Pertemuan1.o mainKubusBertingkat(no3).o Primitive(no2).o
+OBJ      = main.o
+LINKOBJ  = main.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc -mwindows -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++"
-BIN      = "Tugas Praktikum.exe"
+BIN      = GL_TRIANGLES.exe
 CXXFLAGS = $(CXXINCS) 
 CFLAGS   = $(INCS) -DGLUT_STATIC
 RM       = rm.exe -f
@@ -24,11 +24,5 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-Pertemuan1.o: Pertemuan1.cpp
-	$(CPP) -c Pertemuan1.cpp -o Pertemuan1.o $(CXXFLAGS)
-
-mainKubusBertingkat(no3).o: mainKubusBertingkat(no3).cpp
-	$(CPP) -c mainKubusBertingkat(no3).cpp -o mainKubusBertingkat(no3).o $(CXXFLAGS)
-
-Primitive(no2).o: Primitive(no2).cpp
-	$(CPP) -c Primitive(no2).cpp -o Primitive(no2).o $(CXXFLAGS)
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)

@@ -1,6 +1,6 @@
 [Project]
-FileName=Pertemuan_1.dev
-Name=Pertemuan_1
+FileName=GL_LINES.dev
+Name=GL_LINES
 Type=0
 Ver=2
 ObjFiles=
@@ -9,9 +9,9 @@ Libs=
 PrivateResource=
 ResourceIncludes=
 MakeIncludes=
-Compiler=-DGLUT_STATIC_@@_
+Compiler=-DGLUT_STATIC
 CppCompiler=
-Linker=-lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32 _@@_
+Linker=-lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32
 IsCpp=1
 Icon=
 ExeOutput=
@@ -19,7 +19,7 @@ ObjectOutput=
 LogOutput=
 LogOutputEnabled=0
 OverrideOutput=0
-OverrideOutputName=Pertemuan_1.exe
+OverrideOutputName=
 HostApplication=
 UseCustomMakefile=0
 CustomMakefile=
@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=2
+UnitCount=1
 
 [VersionInfo]
 Major=1
@@ -39,30 +39,21 @@ Build=0
 LanguageID=1033
 CharsetID=1252
 CompanyName=
-FileVersion=1.0.0.0
+FileVersion=
 FileDescription=Developed using the Dev-C++ IDE
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
 ProductName=
-ProductVersion=1.0.0.0
+ProductVersion=
 AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
 FileName=main.cpp
 CompileCpp=1
-Folder=Pertemuan_1
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit2]
-FileName=Untitled4
-Folder=Pertemuan_1
+Folder=GL_LINES
 Compile=1
 Link=1
 Priority=1000

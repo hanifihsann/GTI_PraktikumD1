@@ -1,6 +1,6 @@
 [Project]
-FileName=tes.dev
-Name=Project1
+FileName=GL_LINES.dev
+Name=GL_LINES
 Type=0
 Ver=2
 ObjFiles=
@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=3
+UnitCount=1
 
 [VersionInfo]
 Major=1
@@ -51,29 +51,9 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=maintes.cpp
+FileName=main2.cpp
 CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit2]
-FileName=mainKubusBertingkat.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit3]
-FileName=mainTes2.cpp
-CompileCpp=1
-Folder=
+Folder=GL_LINES
 Compile=1
 Link=1
 Priority=1000
