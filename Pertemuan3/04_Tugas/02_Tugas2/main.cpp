@@ -1,17 +1,13 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 
-// Variabel sudut utama (TIDAK DIUBAH)
 static int shoulder = 0;
 static int elbow = 0;
-
-// Tambahan wrist + jari
 static int wrist = 0;
 static int finger[5][3] = {
     {0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}
 };
 
-// Inisialisasi
 void init(void)
 {
     glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -24,29 +20,23 @@ void drawFinger(int a1, int a2, int a3)
 
     // ===== RUAS 1 =====
     glRotatef(a1, 0, 0, 1);
-
     glPushMatrix();
-        glTranslatef(0.1, 0, 0);          // setengah panjang
+        glTranslatef(0.1, 0, 0);          
         glScalef(0.2, 0.1, 0.1);
         glutWireCube(1.0);
     glPopMatrix();
-
-    // pindah ke ujung ruas 1 (PAS)
     glTranslatef(0.2, 0, 0);
 
-    // ===== RUAS 2 =====
+    //RUAS 2
     glRotatef(a2, 0, 1, 0);
-
     glPushMatrix();
         glTranslatef(0.09, 0, 0);
         glScalef(0.18, 0.09, 0.09);
         glutWireCube(1.0);
     glPopMatrix();
-
-    // pindah ke ujung ruas 2
     glTranslatef(0.18, 0, 0);
 
-    // ===== RUAS 3 =====
+    //RUAS 3
     glRotatef(a3, 0, 1, 0);
 
     glPushMatrix();
@@ -64,7 +54,7 @@ void display(void)
     glClear(GL_COLOR_BUFFER_BIT);
     glPushMatrix();
 
-    // ===== SHOULDER =====
+    //SHOULDER
     glTranslatef(-1.0, 0.0, 0.0);
     glRotatef((GLfloat)shoulder, 0.0, 0.0, 1.0);
     glTranslatef(1.0, 0.0, 0.0);
@@ -74,7 +64,7 @@ void display(void)
         glutWireCube(1.0);
     glPopMatrix();
 
-    // ===== ELBOW =====
+    //ELBOW
     glTranslatef(1.0, 0.0, 0.0);
     glRotatef((GLfloat)elbow, 0.0, 0.0, 1.0);
     glTranslatef(1.0, 0.0, 0.0);
@@ -84,27 +74,23 @@ void display(void)
         glutWireCube(1.0);
     glPopMatrix();
 
-	// ===== PERGELANGAN (KANAN-KIRI) =====
+	//PERGELANGAN
 	glTranslatef(1.0, 0.0, 0.0);
-	
-	// ROTASI DI SUMBU Y ? kanan-kiri
 	glRotatef((GLfloat)wrist, 0.0, 0.0, 1.0);
-	
-	// kubus wrist
 	glPushMatrix();
 	    glScalef(0.25, 0.25, 0.25);
 	    glutWireCube(1.0);
 	glPopMatrix();
 
-	// ===== TELAPAK (LEBIH PENDEK) =====
-	glTranslatef(0.25, 0.0, 0.0);   // sedikit lebih dekat ke wrist
+	//TELAPAK
+	glTranslatef(0.25, 0.0, 0.0);   
 	
 	glPushMatrix();
-	    glScalef(0.5, 0.5, 0.3);    // dipendekin di sumbu X
+	    glScalef(0.5, 0.5, 0.3);   
 	    glutWireCube(1.0);
 	glPopMatrix();
 
-    // ===== 4 JARI =====
+    //4 JARI
     float posisi[4] = {-0.2, -0.07, 0.07, 0.2};
     for(int i = 0; i < 4; i++)
     {
@@ -115,7 +101,7 @@ void display(void)
         glPopMatrix();
     }
 
-    // ===== IBU JARI =====
+    // IBU JARI
     glPushMatrix();
         glTranslatef(0.15, -0.3, 0.0);
         glRotatef(-40, 0, 0, 1);
@@ -140,23 +126,20 @@ void reshape(int w, int h)
     glTranslatef(0.0, 0.0, -5.0);
 }
 
-// Keyboard
+// Kontrol
 void keyboard(unsigned char key, int x, int y)
 {
     switch (key)
     {
-        // ===== ASLI =====
         case 's': shoulder = (shoulder + 5) % 360; break;
         case 'S': shoulder = (shoulder - 5) % 360; break;
 
         case 'e': elbow = (elbow + 5) % 360; break;
         case 'E': elbow = (elbow - 5) % 360; break;
 
-        // ===== WRIST (MAJU & MUNDUR) =====
         case 'w': wrist += 5; break;
         case 'W': wrist -= 5; break;
 
-		// ===== JARI (MAJU) =====
 		case '1': finger[0][0] += 5; break;
 		case '6': finger[0][1] += 5; break;
 		case 'y': finger[0][2] += 5; break;
@@ -177,26 +160,24 @@ void keyboard(unsigned char key, int x, int y)
 		case '0': finger[4][1] += 5; break;
 		case 'p': finger[4][2] += 5; break;
 		
-		
-		// ===== JARI (MUNDUR / BALIK) =====
-		case '!': finger[0][0] -= 5; break;   // Shift+1
-		case '^': finger[0][1] -= 5; break;   // Shift+6
+		case '!': finger[0][0] -= 5; break;   
+		case '^': finger[0][1] -= 5; break;  
 		case 'Y': finger[0][2] -= 5; break;
 		
-		case '@': finger[1][0] -= 5; break;   // Shift+2
-		case '&': finger[1][1] -= 5; break;   // Shift+7
+		case '@': finger[1][0] -= 5; break;   
+		case '&': finger[1][1] -= 5; break;   
 		case 'U': finger[1][2] -= 5; break;
 		
-		case '#': finger[2][0] -= 5; break;   // Shift+3
-		case '*': finger[2][1] -= 5; break;   // Shift+8
+		case '#': finger[2][0] -= 5; break;  
+		case '*': finger[2][1] -= 5; break;
 		case 'I': finger[2][2] -= 5; break;
 		
-		case '$': finger[3][0] -= 5; break;   // Shift+4
-		case '(': finger[3][1] -= 5; break;   // Shift+9
+		case '$': finger[3][0] -= 5; break;
+		case '(': finger[3][1] -= 5; break;
 		case 'O': finger[3][2] -= 5; break;
 		
-		case '%': finger[4][0] -= 5; break;   // Shift+5
-		case ')': finger[4][1] -= 5; break;   // Shift+0
+		case '%': finger[4][0] -= 5; break;
+		case ')': finger[4][1] -= 5; break; 
 		case 'P': finger[4][2] -= 5; break;
     }
 
