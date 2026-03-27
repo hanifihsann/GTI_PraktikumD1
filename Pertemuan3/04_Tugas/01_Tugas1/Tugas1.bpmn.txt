@@ -1,0 +1,5 @@
+Objek yang dibuat sebenarnya berbentuk kubus 3D, lalu ditampilkan ke layar 2D menggunakan proyeksi perspektif lewat gluPerspective, sehingga terlihat seperti objek nyata dari sudut pandang tertentu.
+
+Pada fungsi display(), lengan dibentuk dari dua kubus yang mewakili lengan atas dan lengan bawah. Awalnya objek digeser ke posisi bahu, lalu diputar menggunakan variabel shoulder. Setelah itu kubus pertama digambar sebagai lengan atas. Selanjutnya, posisi digeser ke ujung lengan atas, kemudian diputar lagi menggunakan variabel elbow, dan digambar kubus kedua sebagai lengan bawah. Karena transformasi dilakukan berurutan, gerakan bagian bawah akan mengikuti bagian atas.
+
+Untuk menggerakkan lengan, digunakan fungsi keyboard() yang mengubah nilai sudut shoulder dan elbow saat tombol ditekan. Setelah itu, glutPostRedisplay() dipanggil supaya tampilan langsung diprbarui. Jadi, ketika tombol ditekan, lengan akan bergerak secara interaktif, dengan gerakan siku tetap mengikuti arah bahu karena menggunakan konsep transformasi berantai.
